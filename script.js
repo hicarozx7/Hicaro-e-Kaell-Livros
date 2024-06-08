@@ -1,32 +1,36 @@
-//Declarando as variáveis
-let titulo=document.getElementById("titulo")
-let diretor=document.getElementById("diretor")
-let ano=document.getElementById("ano")
-let lista=document.getElementById("lista")
-let button=document.getElementById("button")
+const titulo = document.getElementById("titulo");
+const diretor = document.getElementById("diretor");
+const ano = document.getElementById("ano");
+const lista = document.getElementById("lista");
+const button = document.getElementById("button");
 
-//button
-button.addEventListener("click",exibir)
+// Adicionando evento ao botão
+button.addEventListener("click", exibir);
 
+// Função para exibir o filme
+function exibir() {
+    // Obtendo os valores dos campos
+    const valorDoTitulo = titulo.value;
+    const valorDoDiretor = diretor.value;
+    const valorDoAno = ano.value;
 
+    // Verificando se todos os campos estão preenchidos
+    if (valorDoTitulo && valorDoDiretor && valorDoAno) {
+        adicionarFilme(valorDoTitulo, valorDoDiretor, valorDoAno);
+        limparCampos();
+    }
+}
 
-function exibir (){
-   let valorDoTitulo=titulo.value
-   let valorDoDiretor=diretor.value 
-   let valorDoAno=ano.value
-   
-   if(valorDoTitulo!="" && valorDoDiretor!="" && valorDoAno!="" ){
-   
-   let novoFilme=document.createElement("p")
+// Função para criar e adicionar um novo filme à lista
+function adicionarFilme(titulo, diretor, ano) {
+    const novoFilme = document.createElement("p");
+    novoFilme.textContent = ${titulo} - ${diretor} (${ano});
+    lista.appendChild(novoFilme);
+}
 
-   novoFilme.textContent=(valorDoTitulo+"-"+valorDoDiretor+"("+valorDoAno+")")
-          
-   lista.appendChild(novoFilme)
-
-   titulo.value=""
-   diretor.value=""
-   ano.value=""
-
-   }
-   
+// Função para limpar os campos de entrada
+function limparCampos() {
+    titulo.value = "";
+    diretor.value = "";
+    ano.value = "";
 }
