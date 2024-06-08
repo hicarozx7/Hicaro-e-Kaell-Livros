@@ -5,7 +5,7 @@ const lista = document.getElementById("lista");
 const button = document.getElementById("button");
 
 
-button.addEventListener("click", exibir);
+document.getElementById("filme-form").addEventListener("click", exibir);
 
 
 function exibir(event) {
