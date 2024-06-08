@@ -5,12 +5,12 @@ const lista = document.getElementById("lista");
 const button = document.getElementById("button");
 
 
-document.getElementById("filme-form").addEventListener("click", exibir);
+document.getElementById("botao").addEventListener("click", exibir);
 
 
 function exibir(event) {
     
-    event.preventDefault();
+    
 
  
     const valorDoTitulo = titulo.value;
