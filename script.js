@@ -8,7 +8,10 @@ const button = document.getElementById("button");
 button.addEventListener("click", exibir);
 
 // Função para exibir o filme
-function exibir() {
+function exibir(event) {
+    // Prevenir comportamento padrão do botão
+    event.preventDefault();
+
     // Obtendo os valores dos campos
     const valorDoTitulo = titulo.value;
     const valorDoDiretor = diretor.value;
@@ -24,7 +27,7 @@ function exibir() {
 // Função para criar e adicionar um novo filme à lista
 function adicionarFilme(titulo, diretor, ano) {
     const novoFilme = document.createElement("p");
-    novoFilme.textContent = ${titulo} - ${diretor} (${ano});
+    novoFilme.textContent = `${titulo} - ${diretor} (${ano})`;
     lista.appendChild(novoFilme);
 }
 
@@ -32,5 +35,5 @@ function adicionarFilme(titulo, diretor, ano) {
 function limparCampos() {
     titulo.value = "";
     diretor.value = "";
-    ano.value = "";
+    ano.value = "";
 }
